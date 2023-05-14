@@ -5,6 +5,7 @@ Discord RPC для приложения и веб версии Яндекс Му
 ![src2](https://img.shields.io/badge/language-python-blue)
 
 Базовый код взят: https://github.com/maj0roff/YandexMusicDiscordRPC
+
 Доработал и улучшил код: я :)
 
 ------------
