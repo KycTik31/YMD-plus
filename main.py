@@ -10,9 +10,9 @@ if len(config.get("main", "ym")) <= 2:
     messagebox.showinfo("[Яндекс Музыка]", "[Яндекс Музыка] Установка необходимых пакетов.")
     os.system('pip install yandex-music --upgrade')
     os.system('pip install pypresence')
-    os.system('pip install pyqt6')
+    os.system('pip install pyqt6==6.5.0')
     os.system('pip install pymem')
-    os.system('pip install PyQt6-WebEngine')
+    os.system('pip install PyQt6-WebEngine==6.5.0')
 import sys
 import platform
 try:
