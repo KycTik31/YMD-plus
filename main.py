@@ -1,13 +1,6 @@
 import os
 from configparser import ConfigParser
 from tkinter import messagebox
-
-config = ConfigParser()
-config.read('info/config.ini')
-if len(config.get("main", "ym")) <= 2:
-    messagebox.showinfo("[Яндекс Мimport os
-from configparser import ConfigParser
-from tkinter import messagebox
 import traceback
 from pypresence.exceptions import DiscordNotFound
 
