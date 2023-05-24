@@ -2,7 +2,7 @@ import os
 from configparser import ConfigParser
 from tkinter import messagebox
 import traceback
-from pypresence.exceptions import DiscordNotFound
+
 
 config = ConfigParser()
 config.read('info/config.ini')
@@ -13,6 +13,7 @@ if len(config.get("main", "ym")) <= 2:
     os.system('pip install pyqt6==6.5.0')
     os.system('pip install pymem')
     os.system('pip install PyQt6-WebEngine==6.5.0')
+from pypresence.exceptions import DiscordNotFound
 import sys
 import platform
 try:
