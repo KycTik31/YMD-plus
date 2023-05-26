@@ -10,15 +10,18 @@ config = ConfigParser()
 config.read('info/config.ini')
 
 if len(config.get("main", "ym")) <= 2:
-    messagebox.showinfo("[Яндекс Музыка]", "[Яндекс Музыка] Замечен первый запуск программы, пожалуйста авторизируйтесь в следующем окне.")
-    config.set("main", "ym", UpdateToken())
-    print("[Яндекс Музыка] Успешный запуск")
+    messagebox.showinfo("[Яндекс Музыка]",
+                        "[Яндекс Музыка] Замечен первый запуск программы, пожалуйста авторизируйтесь в следующем окне.")
+    token = UpdateToken()
+    if token != "0":
+        config.set("main", "ym", token)
+    else:
+        config.set("main", "ym", "0")
     with open("info/config.ini", "w") as config_file:
         config.write(config_file)
 
     client = Client(config.get("main", "ym")).init()
 else:
-    print("[Яндекс Музыка] Успешный запуск")
     client = Client(config.get("main", "ym")).init()
 
 
@@ -27,12 +30,13 @@ class MYAPI:
         self.lQ = client.queue(client.queues_list()[0].id)
 
     def ForceUpdateToken(self):
-        config.set("main", "ym", UpdateToken())
-        print("[Яндекс Музыка] Успешный запуск")
-        with open("info/config.ini", "w") as config_file:
-            config.write(config_file)
+        token = UpdateToken()
+        if token != "0":
+            config.set("main", "ym", token)
+            with open("info/config.ini", "w") as config_file:
+                config.write(config_file)
 
-        client = Client(config.get("main", "ym")).init()
+            client = Client(config.get("main", "ym")).init()
 
     def songTitle(self):
         last_track_id = self.lQ.get_current_track()
