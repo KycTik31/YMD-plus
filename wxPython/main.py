@@ -24,15 +24,13 @@ try:
     from modules.rpc import MRPC
     from modules.yandexmusic import MYAPI
 except DiscordNotFound:
-    dlg = MessageDialog(None, "[Яндекс Музыка]", "Сначала откройте Discord!", OK | ICON_INFORMATION)
-    dlg.ShowModal()
-    dlg.Destroy()
+    messagebox.showerror("[Яндекс Музыка]", "Сначала откройте Discord!")
     sys.exit()
 except Exception as e:
     with open('error.txt', 'w') as f:
         f.write(str(traceback.format_exc()))
     messagebox.showerror("[Яндекс Музыка]",
-                         "[Яндекс Музыка] Замечен первый запуск программы, пожалуйста авторизируйтесь в следующем окне.")
+                         "Произошла ошибка, попытайтесь разобратся сами или напишите разработчику.")
     sys.exit()
 
 linux = False
