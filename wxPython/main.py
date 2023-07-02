@@ -1,17 +1,21 @@
 from configparser import ConfigParser
-import wx
 import webbrowser
 import traceback
-from multiprocessing import Process, Queue, freeze_support
-
-freeze_support()
-
-config = ConfigParser()
-config.read('info/config.ini')
-from pypresence.exceptions import DiscordNotFound
-from tkinter import messagebox
 import sys
 import platform
+from multiprocessing import Process, Queue
+if len(config.get("main", "ym")) <= 2:
+    messagebox.showinfo("[Яндекс Музыка]", "[Яндекс Музыка] Установка необходимых пакетов.")
+    os.system('pip install yandex-music --upgrade')
+    os.system('pip install pypresence')
+    os.system('pip install pyqt6==6.5.0')
+    os.system('pip install pymem')
+    os.system('pip install wxPython==4.2.1')
+config = ConfigParser()
+config.read('info/config.ini')
+import wx
+from pypresence.exceptions import DiscordNotFound
+from tkinter import messagebox
 
 try:
     from wx import App, Frame, Menu, MenuItem, Icon, MessageDialog, OK, ICON_INFORMATION
