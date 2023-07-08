@@ -16,8 +16,6 @@ if len(config.get("main", "ym")) <= 2:
     os.system('pip install pypresence')
     os.system('pip install pymem')
     os.system('pip install wxPython==4.2.1')
-config = ConfigParser()
-config.read('info/config.ini')
 from pypresence.exceptions import DiscordNotFound
 import wx
 try:
