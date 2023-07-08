@@ -4,7 +4,10 @@ import traceback
 from tkinter import messagebox
 import sys
 import platform
+import os
 from multiprocessing import Process, Queue, freeze_support
+config = ConfigParser()
+config.read('info/config.ini')
 
 freeze_support()
 if len(config.get("main", "ym")) <= 2:
