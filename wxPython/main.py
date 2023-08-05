@@ -19,21 +19,18 @@ if len(config.get("main", "ym")) <= 2:
 from pypresence.exceptions import DiscordNotFound
 import wx
 try:
-    from wx import App, Frame, Menu, MenuItem, Icon, MessageDialog, OK, ICON_INFORMATION
+    from wx import App, Frame, Menu, MenuItem, Icon, MessageDialog
     from wx.adv import TaskBarIcon
     from wx.html2 import WebView
     from modules.rpc import MRPC
     from modules.yandexmusic import MYAPI
 except DiscordNotFound:
-    dlg = MessageDialog(None, "[Яндекс Музыка]", "Сначала откройте Discord!", OK | ICON_INFORMATION)
-    dlg.ShowModal()
-    dlg.Destroy()
+    messagebox.showerror(title="[Яндекс Музыка]", message="Сначала откройте Discord!")
     sys.exit()
 except Exception as e:
     with open('error.txt', 'w') as f:
         f.write(str(traceback.format_exc()))
-    messagebox.showerror("[Яндекс Музыка]",
-                         "[Яндекс Музыка] Замечен первый запуск программы, пожалуйста авторизируйтесь в следующем окне.")
+    messagebox.showerror(title="[Яндекс Музыка]", message="Произошла ошибка, попытайтесь разобратся сами или напишите разработчику.")
     sys.exit()
 
 linux = False
