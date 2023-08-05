@@ -22,10 +22,17 @@ class MRPC:
         return remote_pointer.value + offsets[-1]
 
     def musicTime(self, pm, gameModule):
-        return [
-            pm.read_double(MRPC().getPointerAddress(gameModule + 0x012C0BC8, [0x38, 0x10, 0xC0, 0x410, 0xEA8], pm)) * (
-                    pm.read_double(MRPC().getPointerAddress(gameModule + 0x012C0BC8, [0x40, 0x38, 0x70], pm)) / 100),
-            pm.read_double(MRPC().getPointerAddress(gameModule + 0x012C0BC8, [0x38, 0x10, 0xC0, 0x410, 0xEA8], pm))]
+        duraton = pm.read_double(MRPC().getPointerAddress(gameModule + 0x012C0BC8, [0x38, 0x10, 0xC0, 0x410, 0xEA8], pm))
+        progress = pm.read_double(MRPC().getPointerAddress(gameModule + 0x012C0BC8, [0x40, 0x38, 0x70], pm))
+        if (duraton != 0 and duraton < 0.1) and (progress != 0 and progress < 0.1):
+            duraton = pm.read_double(MRPC().getPointerAddress(gameModule + 0x012C0BC8, [0x38, 0x10, 0xA8, 0x408, 0xEB0], pm))
+            progress = pm.read_double(MRPC().getPointerAddress(gameModule + 0x012C0BC8, [0x48, 0x38, 0x78], pm))
+        else:
+            if duraton != 0 and duraton < 0.1:
+                duraton = pm.read_double(MRPC().getPointerAddress(gameModule + 0x012C0BC8, [0x38, 0x10, 0xA8, 0x408, 0xEB0], pm))
+            if progress != 0 and progress < 0.1:
+                progress = pm.read_double(MRPC().getPointerAddress(gameModule + 0x012C0BC8, [0x48, 0x38, 0x78], pm))
+        return [duraton * (progress / 100), duraton]
 
     def Clear(self):
         self.dRPC.clear()
