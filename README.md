@@ -6,7 +6,6 @@ Discord RPC для приложения и веб версии Яндекс Му
 
 Базовый код взят: https://github.com/maj0roff/YandexMusicDiscordRPC
 
-Доработал и улучшил код: я :)
 
 ------------
 
