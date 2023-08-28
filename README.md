@@ -1,6 +1,8 @@
 # **Yandex Music Discord Rich Presence**
 Discord RPC для приложения яндекс музыки
 
+**RPC работает только с русским языком Яндекс Музыки**
+
 ![src](https://img.shields.io/badge/source%20code-open-red)
 ![src2](https://img.shields.io/badge/language-python-blue)
 
