@@ -8,11 +8,15 @@ Discord RPC для приложения яндекс музыки
 
 Базовый код взят: https://github.com/maj0roff/YandexMusicDiscordRPC
 
+**скорее всего проект больше не будет обновляться, возможно когда нибудь я выпущу обновление**
+
 
 ------------
  
 
 ## ВАЖНО
+
+
 | Version | Supported          |
 | ------- | ------------------ |
 | wxPython-ver (v0.0.2-new-lib)| :white_check_mark: |
