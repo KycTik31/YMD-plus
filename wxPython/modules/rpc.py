@@ -23,7 +23,7 @@ class MRPC:
                 remote_pointer = RemotePointer(pm.process_handle, remote_pointer.value + offset)
         return remote_pointer.value + offsets[-1]
 
-def musicTime(self, pm, gameModule):
+    def musicTime(self, pm, gameModule):
         duraton = pm.read_double(MRPC().getPointerAddress(gameModule + 0x012C0BC8, [0x38, 0x10, 0xC0, 0x410, 0xEA8], pm))
         progress = pm.read_double(MRPC().getPointerAddress(gameModule + 0x012C0BC8, [0x40, 0x38, 0x70], pm))
         if (duraton != 0 and duraton < 0.1) and (progress != 0 and progress < 0.1):
